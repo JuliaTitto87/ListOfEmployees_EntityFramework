@@ -15,12 +15,13 @@
 	@foreach (var m in Model.GetEmployees())
 	{
 		<tr>
+			
 			<td><p>@m.PersonnelNumber</p></td>
 			<td><p>@m.FullName</p></td>
 			<td><p>@m.Department</p></td>
 			<td><p>@m.EmployeesPosition</p></td>
-			<td><p><a href="@Url.Action(nameof(EmployeeController.Edit))/@m.PersonnelNumber"> Изменить </a></p></td>
-			<td><p><a href="@Url.Action(nameof(EmployeeController.Delete))/@m.PersonnelNumber"> Удалить </a></p></td>
+			<td><p><a href="@Url.Action(nameof(EmployeeController.Edit))/@m.Id"> Изменить </a></p></td>
+			<td><p><a href="@Url.Action(nameof(EmployeeController.Delete))/@m.Id"> Удалить </a></p></td>
 		</tr>
 	}
     </table>

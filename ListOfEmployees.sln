@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListOfEmployees__DomainMode
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListOfEmployees__BLL", "ListOfEmployees__BLL\ListOfEmployees__BLL.csproj", "{952EE8B2-67E3-4D6E-8236-EFC2F6C9AFEB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListOfEmployees_DAL", "ListOfEmployees_DAL\ListOfEmployees_DAL.csproj", "{A002167D-6D96-4771-B497-B586F97D6DE0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{952EE8B2-67E3-4D6E-8236-EFC2F6C9AFEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{952EE8B2-67E3-4D6E-8236-EFC2F6C9AFEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{952EE8B2-67E3-4D6E-8236-EFC2F6C9AFEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A002167D-6D96-4771-B497-B586F97D6DE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A002167D-6D96-4771-B497-B586F97D6DE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A002167D-6D96-4771-B497-B586F97D6DE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A002167D-6D96-4771-B497-B586F97D6DE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

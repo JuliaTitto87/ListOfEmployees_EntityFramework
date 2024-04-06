@@ -9,8 +9,6 @@
  controllerName: Html.ViewContext.RouteData.Values["controller"].ToString(),
  FormMethod.Post))
 {
-    @Html.AntiForgeryToken()
-    @Html.HiddenFor(model => model.PersonnelNumber)
     <div>
         <div>
             <label style="width:200px"> ФИО работника</label>

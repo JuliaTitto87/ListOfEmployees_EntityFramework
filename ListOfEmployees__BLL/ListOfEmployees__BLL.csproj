@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ListOfEmployees_DAL\ListOfEmployees_DAL.csproj" />
     <ProjectReference Include="..\ListOfEmployees__DomainModel\ListOfEmployees__DomainModel.csproj" />
   </ItemGroup>
 

@@ -1,55 +1,42 @@
 ﻿using ListOfEmployees__BLL.Contracts;
 using ListOfEmployees__DomainModel;
-using Newtonsoft.Json;
+using Microsoft.EntityFrameworkCore;
+using ListOfEmployees_DAL;
 
 namespace ListOfEmployees__BLL.Services
 {
-    public class EmployeeService : IEmployeesService
-        {
-        private readonly string fileName = "Employees.json";
-        List<Employee> employees = new List<Employee>();
+	public class EmployeeService : IEmployeesService
+	{
 
-        List<Employee> IEmployeesService.GetEmployees()
-        {
-            GetEmployeesFromFile();
-            return employees;
-        }
+		private readonly DbContext _context;
+		List<Employee> employees = new List<Employee>();
 
-        public void DeleteEmployee(Employee employee)
-        {
-            GetEmployeesFromFile();
-            employees.Remove(employees.FirstOrDefault(x => x.PersonnelNumber == employee.PersonnelNumber));
-            SaveEmployeesToFile();
-        }
+		public EmployeeService(DbContext context)
+		{
+			_context = context;
+		}
 
-        public void AddEmployee(Employee employee)
-        {
-            GetEmployeesFromFile();
-            employees.Add(employee);
-            SaveEmployeesToFile();
-        }
-        public void UpdateEmployee(Employee employee)
-        {
-            GetEmployeesFromFile();
-            employees[employees.IndexOf(employees.FirstOrDefault(x => x.PersonnelNumber == employee.PersonnelNumber))]=employee;
-            SaveEmployeesToFile();
-        }
+		List<Employee> IEmployeesService.GetEmployees()
+		{
+			employees = ((EmployeesContext)_context).Employees.ToList();
+			return employees;
+		}
 
-        private void GetEmployeesFromFile()
-        {
-            if (File.Exists(fileName))
-            {
-                string jsonString = File.ReadAllText(fileName);
-                employees = JsonConvert.DeserializeObject<List<Employee>>(jsonString);
-            }
-        }
+		public void DeleteEmployee(Employee employee)
+		{
+			((EmployeesContext)_context).Employees.Remove(employee);
+			_context.SaveChanges();
+		}
 
-        private void SaveEmployeesToFile()
-        {
-            string jsonString = JsonConvert.SerializeObject(employees, Formatting.Indented);
-            StreamWriter file = File.CreateText("Employees.json");
-            file.Write(jsonString);
-            file.Close();
-        }
-    }
-    }
+		public void AddEmployee(Employee employee)
+		{
+			((EmployeesContext)_context).Employees.Add(employee);
+			_context.SaveChanges();
+		}
+		public void UpdateEmployee(Employee employee)
+		{
+			((EmployeesContext)_context).Employees.Update(employee);
+			_context.SaveChanges();
+		}
+	}
+}
